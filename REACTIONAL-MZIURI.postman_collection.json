@@ -1,0 +1,2508 @@
+{
+	"info": {
+		"_postman_id": "8cb6b891-1113-4449-8b98-2d7be7ecccec",
+		"name": "REACTIONAL-MZIURI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15420185"
+	},
+	"item": [
+		{
+			"name": "MEMBERS-API",
+			"item": [
+				{
+					"name": "Authentication",
+					"item": [
+						{
+							"name": "Registration",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"ACCESS_TOKEN\", pm.response.json().access_token)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": "JSON Type",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Leanne Graham\",\n    \"phone\": \"1-770-736-8031 x562323442\",\n    \"website\": \"hildegard.org\",\n    \"username\": \"Gigauri1999\",\n    \"email\": \"gigauri@gmail.com\",\n    \"password\": \"123456789\"\n}"
+								},
+								"url": {
+									"raw": "{{URL}}/api/auth/registration",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"registration"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"ACCESS_TOKEN\", pm.response.json().access_token)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": "JSON Type",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"gigauri@gmail.com\",\n    \"password\": \"1234567890\"\n}"
+								},
+								"url": {
+									"raw": "{{URL}}/api/auth/login",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Forgot Password",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": "JSON Type",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"gigauri@gmail.com\"\n}"
+								},
+								"url": {
+									"raw": "{{URL}}/api/auth/forgot_password",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"forgot_password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reset Password",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": "JSON Type",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"newPassword\": \"123456789\"\n}"
+								},
+								"url": {
+									"raw": "{{URL}}/api/auth/reset_password/9aa939c3ef47bf52aadc271f389f175034f55750",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"reset_password",
+										"9aa939c3ef47bf52aadc271f389f175034f55750"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Admin Requests",
+							"item": [
+								{
+									"name": "Get Users",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/users",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"users"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get User",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/users/63ce976b1ca94b96164cafc6",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"63ce976b1ca94b96164cafc6"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update User",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"description": "JSON Type",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Test User\"\n}"
+										},
+										"url": {
+											"raw": "{{URL}}/api/users/63ce97ed1ca94b96164cafd5",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"63ce97ed1ca94b96164cafd5"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete User",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/users/63ce97ed1ca94b96164cafd5",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"63ce97ed1ca94b96164cafd5"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create User",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"description": "JSON Type",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Test User\",\n    \"username\": \"TestUser\",\n    \"email\": \"Test@gmail.com\",\n    \"phone\": \"1-770-736-8031 x562323442\",\n    \"website\": \"hildegard.org\",\n    \"role\": \"USER\",\n    \"password\": \"123456789\"\n}"
+										},
+										"url": {
+											"raw": "{{URL}}/api/users",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"users"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Todo",
+							"item": [
+								{
+									"name": "Get User Todos",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/users/me/todos",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"me",
+												"todos"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update User Todo",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"description": "JSON Type",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"title\": \"This is my updated todo.\",\n    \"completed\": true\n}"
+										},
+										"url": {
+											"raw": "{{URL}}/api/users/me/todos/63ce988a1ca94b96164caff2",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"me",
+												"todos",
+												"63ce988a1ca94b96164caff2"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete User Todo",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/users/me/todos/63ce988a1ca94b96164caff2",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"me",
+												"todos",
+												"63ce988a1ca94b96164caff2"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create User Todo",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"description": "JSON Type",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"title\": \"delectus aut autem\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/users/me/todos",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"me",
+												"todos"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Address",
+							"item": [
+								{
+									"name": "Get User Addresses",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/users/me/addresses",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"me",
+												"addresses"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create User Address",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"description": "JSON Type",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"street\": \"Saburtalo N6\",\n    \"suite\": \"5\",\n    \"city\": \"Tbilisi\",\n    \"zipcode\": \"0192\",\n    \"geo\": {\n        \"lat\": \"41.21321312\",\n        \"lng\": \"41.02929020\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{URL}}/api/users/me/addresses",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"me",
+												"addresses"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update User Address",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"description": "JSON Type",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"street\": \"Tabukashvili N12\",\n    \"suite\": \"10\",\n    \"city\": \"Tbilisi\",\n    \"zipcode\": \"0192\",\n    \"geo\": {\n        \"lat\": \"41.21321312\",\n        \"lng\": \"41.02929020\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{URL}}/api/users/me/addresses/63ce9f4bc2e566ffc3017de9",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"me",
+												"addresses",
+												"63ce9f4bc2e566ffc3017de9"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete User Address",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/users/me/addresses/63ce9f4bc2e566ffc3017de9",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"me",
+												"addresses",
+												"63ce9f4bc2e566ffc3017de9"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Company",
+							"item": [
+								{
+									"name": "Get User Companies",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/users/me/companies",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"me",
+												"companies"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create User Company",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"description": "JSON Type",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Development Company\",\n    \"catchPhrase\": \"Dev[Z]\",\n    \"bs\": \"Nothing\"\n}"
+										},
+										"url": {
+											"raw": "{{URL}}/api/users/me/companies",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"me",
+												"companies"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update User Company",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"description": "JSON Type",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Mziuri Education\",\n    \"catchPhrase\": \"Dev[Z]\",\n    \"bs\": \"Nothing\"\n}"
+										},
+										"url": {
+											"raw": "{{URL}}/api/users/me/companies/63cea076c2e566ffc3017dfb",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"me",
+												"companies",
+												"63cea076c2e566ffc3017dfb"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete User Company",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/users/me/companies/63cea076c2e566ffc3017dfb",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"me",
+												"companies",
+												"63cea076c2e566ffc3017dfb"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Cart",
+							"item": [
+								{
+									"name": "Get User Cart",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/users/me/cart",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"me",
+												"cart"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add Item in User Cart",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"description": "JSON Type",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"requested_quantity\": 3\n}"
+										},
+										"url": {
+											"raw": "{{URL}}/api/users/me/cart/63da75c1c1c6c2443dee8e01",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"me",
+												"cart",
+												"63da75c1c1c6c2443dee8e01"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Remove Item from User Cart",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/users/me/cart/63da75c1c1c6c2443dee8e01",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"me",
+												"cart",
+												"63da75c1c1c6c2443dee8e01"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Clear Cart",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/users/me/cart/clear",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"me",
+												"cart",
+												"clear"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Favorites",
+							"item": [
+								{
+									"name": "Get User Favorites",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/users/me/favorites",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"me",
+												"favorites"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add Product in User Favorite Products",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/users/me/favorites/products/63da75c1c1c6c2443dee8e01",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"me",
+												"favorites",
+												"products",
+												"63da75c1c1c6c2443dee8e01"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Remove Product from User Favorite Products",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/users/me/favorites/products/63da75c1c1c6c2443dee8e01",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"me",
+												"favorites",
+												"products",
+												"63da75c1c1c6c2443dee8e01"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Clear User Favorite Products",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/users/me/favorites/products/clear",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"me",
+												"favorites",
+												"products",
+												"clear"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Get Me",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/users/me",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"me"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Me",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": "JSON Type",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Davit Gigauri\"\n}"
+								},
+								"url": {
+									"raw": "{{URL}}/api/users/me",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"me"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change Password",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": "JSON Type",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"currentPassword\": \"1234567890\",\n    \"newPassword\": \"123456789\"\n}"
+								},
+								"url": {
+									"raw": "{{URL}}/api/users/me/change_password",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"me",
+										"change_password"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Post",
+					"item": [
+						{
+							"name": "Comment",
+							"item": [
+								{
+									"name": "Get Posts Comments",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/comments/post/63ce99a91ca94b96164cb01e",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"comments",
+												"post",
+												"63ce99a91ca94b96164cb01e"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Comment",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"description": "JSON Type",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"title\": \"sorry\"\n}"
+										},
+										"url": {
+											"raw": "{{URL}}/api/comments/63ce99f11ca94b96164cb024",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"comments",
+												"63ce99f11ca94b96164cb024"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Comment",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/comments/63ce99f11ca94b96164cb024",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"comments",
+												"63ce99f11ca94b96164cb024"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Comment",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"description": "JSON Type",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"post\": \"63ce99a91ca94b96164cb01e\",\n    \"title\": \"very good\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/comments",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"comments"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Get Posts",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/posts",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"posts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Post",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/posts/63ce99a91ca94b96164cb01e",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"posts",
+										"63ce99a91ca94b96164cb01e"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get User Posts",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/users/me/posts",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"me",
+										"posts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": "JSON Type",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"updated sunt aut facere repellat provident occaecati excepturi optio reprehenderit\"\n}"
+								},
+								"url": {
+									"raw": "{{URL}}/api/posts/63ce995f1ca94b96164cb00c",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"posts",
+										"63ce995f1ca94b96164cb00c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/posts/63ce995f1ca94b96164cb00c",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"posts",
+										"63ce995f1ca94b96164cb00c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": "JSON Type",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"sunt aut facere repellat provident occaecati excepturi optio reprehenderit\",\n    \"body\": \"quia et suscipit\\nsuscipit recusandae consequuntur expedita et cum\\nreprehenderit molestiae ut ut quas totam\\nnostrum rerum est autem sunt rem eveniet architecto\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/posts",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"posts"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Album",
+					"item": [
+						{
+							"name": "Photo",
+							"item": [
+								{
+									"name": "Get Album Photos",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/photos/album/63ce9bf21ca94b96164cb04c",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"photos",
+												"album",
+												"63ce9bf21ca94b96164cb04c"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Photo",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/photos/63ce9d461ca94b96164cb056",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"photos",
+												"63ce9d461ca94b96164cb056"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Photo",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"description": "JSON Type",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"album\": \"63ce9bf21ca94b96164cb04c\",\n    \"title\": \"first accusamus beatae ad facilis cum similique qui sunt\",\n    \"url\": \"https://via.placeholder.com/600/92c952\",\n    \"thumbnail_url\": \"https://via.placeholder.com/150/92c952\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/api/photos",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"photos"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Get Albums",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/albums",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"albums"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Album",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/albums/63ce9b431ca94b96164cb03b",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"albums",
+										"63ce9b431ca94b96164cb03b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get User Albums",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/users/me/albums",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"me",
+										"albums"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Album",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": "JSON Type",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"update quidem molestiae enim\"\n}"
+								},
+								"url": {
+									"raw": "{{URL}}/api/albums/63ce9b431ca94b96164cb03b",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"albums",
+										"63ce9b431ca94b96164cb03b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Album",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/albums/63ce9b431ca94b96164cb03b",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"albums",
+										"63ce9b431ca94b96164cb03b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Album",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": "JSON Type",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"First quidem molestiae enim\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/albums",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"albums"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Brand",
+					"item": [
+						{
+							"name": "Get Brands",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/brands",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"brands"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Brand",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": "JSON Type",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"apple1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/brands/63cff8b68f3fd7fad0b4a7a5",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"brands",
+										"63cff8b68f3fd7fad0b4a7a5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Brand",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/brands/63d7cf8afdb712c2a4b1def2",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"brands",
+										"63d7cf8afdb712c2a4b1def2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Brand",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": "JSON Type",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Apple\",\n    \"image\": \"apple.png\"\n}"
+								},
+								"url": {
+									"raw": "{{URL}}/api/brands",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"brands"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Menu",
+					"item": [
+						{
+							"name": "Category",
+							"item": [
+								{
+									"name": "Get Categories",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/menu/categories",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"menu",
+												"categories"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Category",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/menu/categories/63d1414800e64d11b2921cc4",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"menu",
+												"categories",
+												"63d1414800e64d11b2921cc4"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Category",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"description": "JSON Type",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"ტექნიკა\"\n}"
+										},
+										"url": {
+											"raw": "{{URL}}/api/menu/categories/63d140ae00e64d11b2921cbb",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"menu",
+												"categories",
+												"63d140ae00e64d11b2921cbb"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Category",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"description": "JSON Type",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"GAMING\"\n}"
+										},
+										"url": {
+											"raw": "{{URL}}/api/menu/categories",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"menu",
+												"categories"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Category",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/menu/categories/63d1414800e64d11b2921cc4",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"menu",
+												"categories",
+												"63d1414800e64d11b2921cc4"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Sub Category",
+							"item": [
+								{
+									"name": "Get Sub Categories",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/menu/sub_categories",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"menu",
+												"sub_categories"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Sub Category",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/menu/sub_categories/63d1424f3df141769cad7581",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"menu",
+												"sub_categories",
+												"63d1424f3df141769cad7581"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Sub Category",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"description": "JSON Type",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"მაუსი\",\n    \"parent_category\": \"63d7d96d922278506fc7259d\"\n}"
+										},
+										"url": {
+											"raw": "{{URL}}/api/menu/sub_categories/63d7da04c32be04cb6c38c42",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"menu",
+												"sub_categories",
+												"63d7da04c32be04cb6c38c42"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Sub Category",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"description": "JSON Type",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"ნოუთბუქები\",\n    \"parent_category\": \"63d7d963922278506fc7259a\"\n}"
+										},
+										"url": {
+											"raw": "{{URL}}/api/menu/sub_categories",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"menu",
+												"sub_categories"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Sub Category",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{ACCESS_TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/api/menu/sub_categories/63d142063df141769cad7575",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"api",
+												"menu",
+												"sub_categories",
+												"63d142063df141769cad7575"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Product",
+					"item": [
+						{
+							"name": "Get Products",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/products",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Product",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/products/63da75c1c1c6c2443dee8e01",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"products",
+										"63da75c1c1c6c2443dee8e01"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Product",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": "JSON Type",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Product 2\",\n    \"description\": \"Desciption\",\n    \"image\": \"image.png\",\n    \"price\": 200.00,\n    \"quantity\": 12,\n    \"brand\": \"63d7cf9efdb712c2a4b1def6\",\n    \"category\": \"63d7d96d922278506fc7259d\",\n    \"sub_category\": \"63d7da04c32be04cb6c38c42\"\n}"
+								},
+								"url": {
+									"raw": "{{URL}}/api/products",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Product",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": "JSON Type",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"disabled\": false\n}"
+								},
+								"url": {
+									"raw": "{{URL}}/api/products/63e3bb219e62b871b200e92b",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"products",
+										"63e3bb219e62b871b200e92b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Product",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/products/63da7570c1c6c2443dee8df1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"products",
+										"63da7570c1c6c2443dee8df1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Order",
+					"item": [
+						{
+							"name": "Get Orders",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/orders",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"orders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Order",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/orders/63da75c1c1c6c2443dee8e01",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"orders",
+										"63da75c1c1c6c2443dee8e01"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get User Orders",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/users/me/orders",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"me",
+										"orders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Order",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": "JSON Type",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"items\": [\n        {\n            \"product\": \"63da75c1c1c6c2443dee8e01\",\n            \"requested_quantity\": 3,\n            \"amount\" : 400\n        }\n    ],\n    \"shipping\": {\n        \"personal_id\": \"12345678\",\n        \"first_name\": \"Andria\",\n        \"last_name\": \"Kartvelishvili\",\n        \"email\": \"andriaqartvela@gmail.com\",\n        \"phone\": \"555555555\",\n        \"method\": \"PICK_UP_AT_THE_STORE_NEXT_DAY\"\n    },\n    \"total_price\": 400\n}"
+								},
+								"url": {
+									"raw": "{{URL}}/api/orders",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"orders"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
